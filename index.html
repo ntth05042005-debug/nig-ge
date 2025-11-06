@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lăng Chủ tịch Hồ Chí Minh — Tư tưởng & Cuộc đời</title>
+  <meta name="description" content="Tổng hợp nội dung Cuộc đời - Sự nghiệp - Tư tưởng Hồ Chí Minh cho môn Tư tưởng Hồ Chí Minh. Có trắc nghiệm, timeline, thư viện ảnh và nhạc nền." />
+  <style>
+    /* ===========================
+       CƠ BẢN: font + reset
+    
+       =========================== */
+    :root{
+      --red: #b91c1c;
+      --deep-red: #991b1b;
+      --blue: #1d4ed8;
+      --card-bg: #f9fafb;
+      --text: #222;
+      --muted: #6b7280;
+      --maxw: 1000px;
+    }
+    .loc-card img {
+  width: 100%;
+  height: 220px;           /* chiều cao đồng đều */
+  object-fit: cover;       /* cắt ảnh cho đều, không méo */
+  border-radius: 8px;
+  display: block;
+  }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background:#f4f6f8;
+      color:var(--text);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      transition: background .25s ease, color .25s ease;
+    }
+
+    /* ===========================
+       HEADER + NAVBAR
+       =========================== */
+    header.site-header{
+      background:var(--red);
+      color:#fff;
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:1200;
+      padding:10px 16px;
+      box-shadow:0 2px 6px rgba(0,0,0,.15);
+      display:flex;
+      align-items:center;
+      gap:16px;
+      justify-content:space-between;
+    }
+    header .brand{
+      display:flex;align-items:center;gap:12px;
+      text-decoration:none;color:inherit;
+    }
+    header h1{font-size:1.1rem;margin:0}
+    nav.main-nav{
+      display:flex;gap:10px;align-items:center;
+      flex-wrap:wrap;
+    }
+    nav.main-nav a{
+      color:#fff;text-decoration:none;padding:8px 10px;border-radius:6px;
+      font-weight:600;font-size:.95rem;
+    }
+    nav.main-nav a:hover{background:rgba(255,255,255,.06)}
+    /* small screen menu button */
+    #menuToggle{display:none;background:transparent;border:0;color:#fff;font-weight:700;font-size:1rem;cursor:pointer}
+
+    /* ===========================
+       PAGE CONTAINER
+       =========================== */
+    .container{
+      width:90%;
+      max-width:var(--maxw);
+      margin:110px auto 40px; /* header fixed -> margin-top */
+    }
+    section.card{
+      background:#fff;
+      border-radius:12px;
+      box-shadow:0 4px 18px rgba(16,24,40,.06);
+      padding:22px;
+      margin-bottom:20px;
+      transition: background .25s ease, color .25s ease;
+    }
+
+    h2{color:var(--red);margin-top:0;margin-bottom:10px}
+    p{margin:0 0 12px}
+    img.main{width:100%;border-radius:10px;display:block;margin:12px 0}
+
+    /* ===========================
+       GRID: locations, gallery
+       =========================== */
+    .locations{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:18px;
+    }
+    .loc-card{
+      background:var(--card-bg);padding:12px;border-radius:10px;
+      box-shadow:0 2px 8px rgba(2,6,23,.04);
+    }
+    .loc-card img{width:100%;border-radius:8px}
+    .loc-card h3{margin:.4rem 0 .6rem;color:#1e3a8a}
+
+    /* timeline */
+    .timeline{
+      display:flex;flex-direction:column;gap:8px;
+    }
+    .timeline .item{
+      padding:10px;border-left:3px solid var(--red);background:#fff9f9;border-radius:6px;
+    }
+    .timeline .item b{display:block;color:var(--deep-red)}
+
+    /* quiz */
+    .quiz{display:flex;flex-direction:column;gap:12px}
+    .question{padding:10px;border-radius:8px;background:#f8fafc;border:1px solid #eef2ff}
+    .answers{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+    .answers button{
+      padding:10px;border-radius:8px;border:1px solid #d1d5db;background:#fff;text-align:left;cursor:pointer;
+    }
+    .answers button:hover{background:#f1f5f9}
+    .result{padding:10px;border-radius:8px;margin-top:6px;background:#f0fdf4;border:1px solid #bbf7d0;color:#065f46}
+
+    /* utilities */
+    .muted{color:var(--muted);font-size:.95rem}
+    .flex{display:flex;gap:12px;align-items:center}
+    .right{margin-left:auto}
+    .small{font-size:.9rem}
+    .center{text-align:center}
+    .kbd{background:#111827;color:#fff;padding:3px 6px;border-radius:6px;font-size:.85rem}
+
+    /* audio control box */
+    .audio-box{display:flex;gap:12px;align-items:center;padding:10px;border-radius:8px;background:#fff;border:1px solid #e6e6e6}
+    input[type="url"]{width:100%;padding:8px;border-radius:6px;border:1px solid #d1d5db}
+
+    /* footer */
+    footer.site-footer{padding:18px;background:var(--red);color:#fff;text-align:center;border-radius:8px;margin-top:20px}
+
+    /* responsive */
+    @media (max-width:720px){
+      header{padding:10px}
+      nav.main-nav{display:none}
+      #menuToggle{display:inline-block}
+      .container{margin:140px 12px 30px}
+    }
+
+    /* Dark theme */
+    body.dark{
+      background:#0b1220;color:#e6eef6;
+    }
+    body.dark .card{background:#0f1724;color:#e6eef6}
+    body.dark .loc-card{background:#0b1220}
+    body.dark .timeline .item{background:#081224;border-left-color:#ffb4b4}
+    body.dark header{background:#7f1d1d}
+    body.dark footer.site-footer{background:#7f1d1d}
+    body.dark .audio-box{background:#061324;border:1px solid #123147}
+    body.dark .answers button{background:#07122a;color:#dbeafe;border:1px solid #123147}
+    body.dark .answers button:hover{background:#08223f}
+    body.dark input[type="url"]{background:#071029;color:#e6eef6;border:1px solid #123147}
+  </style>
+</head>
+<body>
+  <!-- ===========================
+       HEADER + NAV
+       =========================== -->
+  <header class="site-header" role="banner" aria-label="Trang chủ Lăng Bác">
+    <a class="brand" href="#" aria-label="Trở về đầu trang">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" style="filter:drop-shadow(0 2px 6px rgba(0,0,0,.15))">
+        <rect width="24" height="24" rx="6" fill="#fff"/>
+        <path d="M6 12h12M12 6v12" stroke="#b91c1c" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <h1>Lăng Chủ tịch Hồ Chí Minh</h1>
+    </a>
+
+    <nav class="main-nav" role="navigation" aria-label="Điều hướng chính">
+      <a href="#gioithieu">Giới thiệu</a>
+      <a href="#cuocdoi">Cuộc đời</a>
+      <a href="#sunghiep">Sự nghiệp</a>
+      <a href="#tutuong">Tư tưởng</a>
+      <a href="#diadiem">Địa điểm</a>
+      <a href="#tracnghiem">Trắc nghiệm</a>
+      <a href="#tailieu">Tài liệu</a>
+    </nav>
+
+    <div style="display:flex;align-items:center;gap:8px">
+      <button id="menuToggle" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+      <button id="toggleTheme" aria-pressed="false" class="small kbd">🌙 Dark Mode</button>
+    </div>
+  </header>
+
+  <!-- Mobile menu (hidden on desktop) -->
+  <div id="mobileMenu" style="display:none;position:fixed;top:62px;left:0;right:0;background:var(--red);z-index:1199;padding:10px;">
+    <nav style="display:flex;flex-direction:column;gap:8px">
+      <a href="#gioithieu" style="color:#fff">Giới thiệu</a>
+      <a href="#cuocdoi" style="color:#fff">Cuộc đời</a>
+      <a href="#sunghiep" style="color:#fff">Sự nghiệp</a>
+      <a href="#tutuong" style="color:#fff">Tư tưởng</a>
+      <a href="#diadiem" style="color:#fff">Địa điểm</a>
+      <a href="#tracnghiem" style="color:#fff">Trắc nghiệm</a>
+      <a href="#tailieu" style="color:#fff">Tài liệu</a>
+    </nav>
+  </div>
+
+  <!-- ===========================
+       MAIN CONTENT
+       =========================== -->
+  <main class="container" id="top">
+    <!-- GIỚI THIỆU -->
+    <section id="gioithieu" class="card" aria-labelledby="h-gioithieu">
+      <h2 id="h-gioithieu">Giới thiệu</h2>
+      <img class="main" src="https://bcp.cdnchinhphu.vn/334894974524682240/2024/6/18/anh-3--17186996838041010624049.jpg"
+           alt="Lăng Chủ tịch Hồ Chí Minh, Quảng trường Ba Đình" />
+      <p><strong>Lăng Chủ tịch Hồ Chí Minh</strong> là công trình quốc gia, biểu tượng trang nghiêm của cả dân tộc, tọa lạc tại Quảng trường Ba Đình, Hà Nội — nơi Chủ tịch Hồ Chí Minh đã đọc <em>Tuyên ngôn Độc lập</em> vào ngày 2/9/1945. Lăng hiện là nơi tổ chức các nghi lễ tưởng niệm, là điểm đến của nhiều thế hệ người Việt và bạn bè quốc tế.</p>
+       <p class="muted small">"Không có gì quý hơn độc lập, tự do." — Hồ Chí Minh</p>
+      <p class="muted small"></p>
+    </section>
+
+    <!-- CUỘC ĐỜI -->
+    <section id="cuocdoi" class="card" aria-labelledby="h-cuocdoi">
+      <h2 id="h-cuocdoi">Cuộc đời Chủ tịch Hồ Chí Minh</h2>
+
+      <p><strong>19/5/1890</strong> — Nguyễn Sinh Cung chào đời tại làng Kim Liên, Nam Đàn, tỉnh Nghệ An. Mối quan tâm sớm về vận mệnh dân tộc xuất phát từ bối cảnh nước mất, dân khổ. Những trải nghiệm tuổi thơ, cùng sự giáo dục của gia đình, đã hình thành nền tảng đạo đức, lòng yêu nước và ý chí tìm đường cứu nước.</p>
+
+      <p><strong>1911</strong> — Rời bến Nhà Rồng (Sài Gòn) bắt đầu hành trình ra biển lớn. Trong hơn 30 năm hoạt động ở nước ngoài, Người tiếp xúc với phong trào công nhân, chủ nghĩa Marx–Lenin và phong trào cộng sản quốc tế. Tên gọi từng dùng: Nguyễn Tất Thành, Nguyễn Ái Quốc, sau là Hồ Chí Minh.</p>
+
+      <p><strong>1930</strong> — Tham gia hoạt động xây dựng Đảng Cộng sản Việt Nam. Qua năm tháng đấu tranh, Người khẳng định con đường giải phóng dân tộc gắn liền với chủ nghĩa xã hội là phù hợp với lịch sử Việt Nam.</p>
+
+      <p><strong>2/9/1945</strong> — Tại Quảng trường Ba Đình lịch sử, Người đọc <em>Tuyên ngôn Độc lập</em>, khai sinh nước Việt Nam Dân chủ Cộng hòa. Từ đó Bác trở thành lãnh tụ tinh thần của dân tộc trong suốt cuộc đời hoạt động cách mạng.</p>
+
+      <p><strong>1969</strong> — Chủ tịch Hồ Chí Minh qua đời (2/9/1969). Dẫu vậy, tư tưởng, đạo đức và phong cách của Người vẫn là di sản tinh thần to lớn, tiếp tục soi đường cho sự nghiệp xây dựng và bảo vệ Tổ quốc.</p>
+
+      <div style="margin-top:12px">
+        <h3 style="margin:.4rem 0">Một số điểm nổi bật về giai đoạn bôn ba và hoạt động quốc tế</h3>
+        <ul>
+          <li>Ngoại giao và vận động quốc tế: Người biết cách dùng ý chí và ngôn từ để tạo liên minh, kêu gọi sự đồng thuận với sự nghiệp độc lập của Việt Nam.</li>
+          <li>Hoạt động báo chí – lý luận: viết nhiều bài báo, tham luận, thư từ truyền cảm hứng cách mạng.</li>
+          <li>Tinh thần đọc nhiều sách, nghiên cứu lý luận kết hợp thực tiễn — một phương pháp luận quý báu.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SỰ NGHIỆP -->
+    <section id="sunghiep" class="card" aria-labelledby="h-sunghiep">
+      <h2 id="h-sunghiep">Sự nghiệp cách mạng</h2>
+
+      <p>Hồ Chí Minh là nhà sáng lập Đảng và là lãnh đạo trực tiếp trong nhiều chuyển biến lịch sử của Việt Nam: từ vận động cách mạng, tổ chức quần chúng, đến lãnh đạo khởi nghĩa, thành lập chính quyền và kháng chiến. Sự nghiệp của Người được nhìn nhận qua 3 trục lớn:</p>
+
+      <ol>
+        <li><strong>Lãnh đạo giành độc lập:</strong> lãnh đạo Cách mạng Tháng Tám 1945, khai sinh nhà nước Việt Nam độc lập.</li>
+        <li><strong>Kháng chiến và kiến tạo xã hội:</strong> xây dựng cơ sở chính trị, tuyên truyền, huy động toàn dân trong hai cuộc kháng chiến chống Pháp và chống Mỹ (mặc dù ông qua đời trước khi chiến tranh kết thúc hoàn toàn, nhưng tư tưởng chỉ đạo và tổ chức đã ảnh hưởng sâu sắc).</li>
+        <li><strong>Diễn đạt lý luận phù hợp:</strong> vận dụng chủ nghĩa Marx–Lenin vào hoàn cảnh Việt Nam; nhấn mạnh tính tự lực, phân tích điều kiện nông nghiệp, trình độ dân trí và đưa ra con đường cách mạng phù hợp.</li>
+      </ol>
+
+      <p class="muted small">"Dễ trăm lần không dân cũng chịu, khó vạn lần dân liệu cũng xong." — Hồ Chí Minh</p>
+    </section>
+
+    <!-- TƯ TƯỞNG -->
+    <section id="tutuong" class="card" aria-labelledby="h-tutuong">
+      <h2 id="h-tutuong">Tư tưởng Hồ Chí Minh — cốt lõi và ứng dụng</h2>
+
+      <p>Tư tưởng Hồ Chí Minh không phải là một học thuyết cứng nhắc mà là hệ thống quan điểm, phương pháp, đạo đức, phong cách lãnh đạo được hun đúc từ thực tiễn đấu tranh giải phóng dân tộc và xây dựng xã hội mới. Một số nội dung cốt lõi:</p>
+
+      <h3 style="margin:.6rem 0 .2rem">1. Độc lập dân tộc gắn liền với chủ nghĩa xã hội</h3>
+      <p>Đối với Người, độc lập chính trị là điều kiện tiên quyết, nhưng mục tiêu cuối cùng là xây dựng một xã hội dân chủ, ấm no, công bằng — mang màu sắc xã hội chủ nghĩa phù hợp với hoàn cảnh Việt Nam.</p>
+
+      <h3 style="margin:.6rem 0 .2rem">2. Lấy dân làm gốc — đại đoàn kết</h3>
+      <p>Người khẳng định sức mạnh của nhân dân là cội nguồn của mọi thắng lợi. Chính sách, chiến lược phải xuất phát từ lợi ích của nhân dân và dựa vào nhân dân để thực hiện.</p>
+
+      <h3 style="margin:.6rem 0 .2rem">3. Phương pháp luận: kết hợp lý luận với thực tiễn</h3>
+      <p>Học tập, nghiên cứu để có lý luận; thực tiễn để kiểm chứng và bổ sung lý luận — đây là phương pháp luận mà Người rất coi trọng.</p>
+
+      <h3 style="margin:.6rem 0 .2rem">4. Đạo đức cách mạng</h3>
+      <p>Người luôn đề cao đức hy sinh, cần, kiệm, liêm, chính — coi đó là tiêu chuẩn đạo đức của người cách mạng, đặc biệt là người lãnh tụ.</p>
+
+      <blockquote style="background:#fff5f5;padding:12px;border-left:4px solid var(--red);border-radius:6px">
+        <strong>Trích dẫn nổi tiếng:</strong>
+        <div class="muted small">"Không có gì quý hơn độc lập, tự do." — Hồ Chí Minh</div>
+      </blockquote>
+
+      <p class="muted small"></p>
+    </section>
+
+    <!-- TIMELINE -->
+    <section id="timeline" class="card" aria-labelledby="h-timeline">
+      <h2 id="h-timeline">Timeline – Những mốc quan trọng</h2>
+      <div class="timeline" role="list">
+        <div class="item" role="listitem"><b>1890</b> — Sinh tại Kim Liên, Nghệ An.</div>
+        <div class="item" role="listitem"><b>1911</b> — Rời nước, bắt đầu hoạt động quốc tế.</div>
+        <div class="item" role="listitem"><b>1920–1930</b> — Hòa nhập phong trào cộng sản và hoạt động báo chí.</div>
+        <div class="item" role="listitem"><b>1930</b> — Tham gia thành lập Đảng Cộng sản Việt Nam.</div>
+        <div class="item" role="listitem"><b>1945</b> — Đọc Tuyên ngôn Độc lập (2/9/1945).</div>
+        <div class="item" role="listitem"><b>1954</b> — Chiến thắng Điện Biên Phủ; cả nước từng bước giải phóng.</div>
+        <div class="item" role="listitem"><b>1969</b> — Qua đời (2/9/1969).</div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="card" aria-labelledby="h-gallery">
+      <h2 id="h-gallery">Thư viện ảnh </h2>
+      <div class="locations" aria-hidden="false">
+        <div class="loc-card">
+          <img src="https://scontent.fhan5-9.fna.fbcdn.net/v/t1.6435-9/178799204_3086967274882868_4588856442008982224_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=RCzXebbao-wQ7kNvwFvPUY-&_nc_oc=AdkunLCA6PdLHVWT6mi-7GG7k_puoB-x7-kK5A9sNObj4PooBXg5nvh1KhK54V6d6mKhMC0R_a1HTzmTdVUEj-zD&_nc_zt=23&_nc_ht=scontent.fhan5-9.fna&_nc_gid=5_yJZj6zQUCwpK8SZERYUg&oh=00_Aficnqv89RNpyVlNYIamtAy7C0xzFIppiT2Mb3zSQ5xUUA&oe=693176B9" alt="Hồ Chí Minh thời trẻ">
+          <h3>Hồ Chí Minh (thời trẻ)</h3>
+          <p class="small muted">Ảnh minh họa hành trình ra nước ngoài tìm đường cứu nước.</p>
+        </div>
+        <div class="loc-card">
+          <img src="data:image/jpeg;base64,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" alt="Bác đọc Tuyên ngôn">
+          <h3>Bác đọc Tuyên ngôn Độc lập (2/9/1945)</h3>
+          <p class="small muted">Một trong những khoảnh khắc lịch sử quan trọng nhất của thế kỷ 20 tại Việt Nam.</p>
+        </div>
+        <div class="loc-card">
+          <img src="https://yootek.vn/wp-content/uploads/2025/02/CDIEN1-1.jpeg" alt="Bảo tàng Hồ Chí Minh">
+          <h3>Bảo tàng Hồ Chí Minh</h3>
+          <p class="small muted">Nơi lưu giữ nhiều hiện vật liên quan đến cuộc đời và hoạt động của Người.</p>
+        </div>
+        <div class="loc-card">
+          <img src="https://media-cdn-v2.laodong.vn/storage/newsportal/2023/9/1/1236241/3-VHTT-1032609-02.jpg?w=660" alt="Quảng trường Ba Đình">
+          <h3>Quảng trường Ba Đình</h3>
+          <p class="small muted">Nơi diễn ra nhiều sự kiện trọng đại, trong đó có Lễ đọc Tuyên ngôn Độc lập.</p>
+        </div>
+        <div class="loc-card">
+        <img src="https://phuotvivu.com/blog/wp-content/uploads/2021/09/khu-di-tich-pac-bo.jpg" alt="Khu di tích Pác Bó">
+        <h3>Khu di tích Pác Bó</h3>
+        <p class="small muted">Nơi Bác Hồ trở về lãnh đạo cách mạng năm 1941, nổi tiếng với hang Cốc Bó và suối Lênin.</p>
+        </div>
+          <div class="loc-card">
+      <img src="https://topngheanaz.com/wp-content/uploads/2024/01/hinh-anh-lang-sen-que-bac-1.webp" alt="Quê Bác (Làng Sen, Kim Liên)">
+      <h3>Quê Bác (Làng Sen)</h3>
+      <p class="small muted">Di tích Nhà lưu niệm, giới thiệu về quê hương và tuổi thơ của Chủ tịch Hồ Chí Minh.</p>
+      </div>
+      </div>
+    </section>
+
+    <!-- ĐỊA ĐIỂM (giữ nguyên thẻ của bạn) -->
+    <section id="diadiem" class="card" aria-labelledby="h-diadiem">
+      <h2 id="h-diadiem">Các địa điểm liên kết với Lăng Bác tại Hà Nội</h2>
+      <div class="locations">
+        <div class="loc-card">
+          <img src="https://ac-electric.com.vn/Data/Sites/1/Product/1297/phu2.jpg" alt="Phủ Chủ tịch">
+          <h3>Phủ Chủ tịch</h3>
+          <p class="small muted">Nơi Bác làm việc từ 1954–1969, có nhà sàn và khu vườn.</p>
+        </div>
+        <div class="loc-card">
+          <img src="https://hnm.1cdn.vn/2021/02/10/hanoimoi.com.vn-uploads-images-tuandiep-2021-02-09-_can-canh-nha-san-bac-ho.jpg" alt="Nhà sàn Bác Hồ">
+          <h3>Nhà sàn Bác Hồ</h3>
+          <p class="small muted">Lối sống giản dị, gần gũi với nhân dân.</p>
+        </div>
+        <div class="loc-card">
+          <img src="https://yootek.vn/wp-content/uploads/2025/02/CDIEN1-1.jpeg" alt="Bảo tàng">
+          <h3>Bảo tàng Hồ Chí Minh</h3>
+          <p class="small muted">Trưng bày tư liệu, hiện vật về cuộc đời, sự nghiệp.</p>
+        </div>
+        <div class="loc-card">
+          <img src="https://cdn-media.sforum.vn/storage/app/media/thanhhuyen/%E1%BA%A3nh%20ch%C3%B9a%20m%E1%BB%99t%20c%E1%BB%99t/anh-chua-mot-cot-thumbnail.jpg" alt="Chùa Một Cột">
+          <h3>Chùa Một Cột</h3>
+          <p class="small muted">Di tích lịch sử, gần Lăng Bác.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NHẠC NỀN (file upload or URL) -->
+
+    <!-- TRẮC NGHIỆM -->
+   <section id="tracnghiem" class="card" aria-labelledby="h-tracnghiem">
+  <h2 id="h-tracnghiem">Trắc nghiệm ôn tập (Kiểm tra xem bạn có là cháu ngoan Bác Hồ không)</h2>
+  <p>Làm bài trắc nghiệm ngắn dưới đây — mỗi câu trả lời đúng sẽ có lời khen kèm gợi ý giải thích.</p>
+
+  <div class="quiz" id="quizArea">
+    <!-- Question 1 -->
+    <div class="question" data-q="1">
+      <strong>1. Bác Hồ sinh năm nào?</strong>
+      <div class="answers">
+        <button data-correct="false">1888</button>
+        <button data-correct="true">1890</button>
+        <button data-correct="false">1902</button>
+        <button data-correct="false">1911</button>
+      </div>
+      <div class="feedback" aria-live="polite"></div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question" data-q="2">
+      <strong>2. Ngày nào Bác đọc Tuyên ngôn Độc lập?</strong>
+      <div class="answers">
+        <button data-correct="false">1/5/1945</button>
+        <button data-correct="false">19/5/1945</button>
+        <button data-correct="true">2/9/1945</button>
+        <button data-correct="false">30/4/1945</button>
+      </div>
+      <div class="feedback" aria-live="polite"></div>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question" data-q="3">
+      <strong>3. Câu nói nổi tiếng nào sau đây là của Hồ Chí Minh?</strong>
+      <div class="answers">
+        <button data-correct="false">"Tự do là trên hết"</button>
+        <button data-correct="true">"Không có gì quý hơn độc lập, tự do"</button>
+        <button data-correct="false">"Độc lập hay là chết"</button>
+        <button data-correct="false">"Hòa bình lập tức"</button>
+      </div>
+      <div class="feedback" aria-live="polite"></div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question" data-q="4">
+      <strong>4. Bác rời bến Nhà Rồng vào năm nào để ra đi tìm đường cứu nước?</strong>
+      <div class="answers">
+        <button data-correct="true">1911</button>
+        <button data-correct="false">1920</button>
+        <button data-correct="false">1930</button>
+        <button data-correct="false">1941</button>
+      </div>
+      <div class="feedback" aria-live="polite"></div>
+    </div>
+
+    <!-- Finish -->
+    <div class="center">
+      <button id="finishQuiz" class="kbd">Nộp bài</button>
+      <div id="quizScore" style="margin-top:10px"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCRIPT -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const questions = document.querySelectorAll('.question');
+  const finishBtn = document.getElementById('finishQuiz');
+  const quizScore = document.getElementById('quizScore');
+
+  // Khi nhấn từng câu
+  questions.forEach(question => {
+    const buttons = question.querySelectorAll('button');
+    const feedback = question.querySelector('.feedback');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Xóa chọn cũ
+        buttons.forEach(btn => btn.classList.remove('selected'));
+
+        // Đánh dấu nút đã chọn
+        button.classList.add('selected');
+
+        // Phản hồi đúng/sai
+        if (button.dataset.correct === "true") {
+          feedback.textContent = "✅ Chính xác! Giỏi lắm cháu ngoan của Bác.";
+          feedback.style.color = "green";
+        } else {
+          feedback.textContent = "❌ Sai rồi! Hãy nhớ lại kiến thức về Bác nhé.";
+          feedback.style.color = "red";
+        }
+      });
+    });
+  });
+
+  // Khi nhấn nút "Nộp bài"
+  finishBtn.addEventListener('click', () => {
+    let total = questions.length;
+    let correct = 0;
+
+    questions.forEach(question => {
+      const selected = question.querySelector('button.selected');
+      if (selected && selected.dataset.correct === "true") {
+        correct++;
+      }
+    });
+
+    quizScore.innerHTML = `🎯 Bạn trả lời đúng <strong>${correct}/${total}</strong> câu! ` +
+      (correct === total
+        ? "Tuyệt vời, bạn đúng là cháu ngoan Bác Hồ! 💐"
+        : "Cố gắng thêm nhé, bạn làm rất tốt rồi! 💪");
+  });
+});
+</script>
+
+    <!-- TÀI LIỆU & GỢI Ý TRÍCH DẪN -->
+      <!-- 🔽 PHẦN TÀI LIỆU THAM KHẢO & GỢI Ý TRÍCH DẪN - THÊM MỚI -->
+  <section id="tailieu">
+    <h2>📚 Tài liệu tham khảo & Gợi ý trích dẫn</h2>
+    <p>Trong quá trình tìm hiểu và làm bài thuyết trình, bạn nên trích dẫn từ các nguồn chính thống và đáng tin cậy để đảm bảo tính học thuật.</p>
+
+    <div class="ref-box">
+      <h3>🌟 Gợi ý nguồn tham khảo</h3>
+      <ul>
+        <li><b>Tuyên ngôn Độc lập</b> (văn bản năm 1945)</li>
+        <li><b>Tác phẩm và bài nói của Chủ tịch Hồ Chí Minh</b> — có thể tìm trong <i>Văn kiện Đảng</i> hoặc trên <a href="https://commons.wikimedia.org/wiki/Category:Ho_Chi_Minh" target="_blank">Wikimedia Commons</a>.</li>
+        <li><b>Sách lịch sử & sinh học</b> về Hồ Chí Minh do Nhà xuất bản Chính trị Quốc gia phát hành.</li>
+        <li>Các bài viết của <b>Viện Hồ Chí Minh và các lãnh tụ của Đảng</b>.</li>
+      </ul>
+    </div>
+
+    <div class="quote-box">
+      <h3>🖋️ Cách trích dẫn đề xuất</h3>
+      <p>Bạn có thể trích dẫn như sau:</p>
+      <blockquote>
+        “Không có gì quý hơn độc lập, tự do.”  
+        <br><span class="cite">— Hồ Chí Minh, 1966, Bài nói chuyện tại Mặt trận Tổ quốc Việt Nam</span>
+      </blockquote>
+      <blockquote>
+        “Dễ trăm lần không dân cũng chịu, khó vạn lần dân liệu cũng xong.”  
+        <br><span class="cite">— Hồ Chí Minh, Tác phẩm: Dân vận, 1949</span>
+      </blockquote>
+    </div>
+
+    <div class="slide-summary">
+    </div>
+  </section>
+  <!-- 🔼 HẾT PHẦN THÊM MỚI -->
+
+
+    <!-- IN TÓM TẮT -->
+    <section id="tomtat" class="card" aria-labelledby="h-tomtat">
+      <h2 id="h-tomtat">Tóm tắt bài tập web về tư trưởng Hồ Chí Minh / Bài thuyết trình</h2>
+      <p>Đây là một bản tóm tắt ngắn để bạn copy vào slide:</p>
+      <ul>
+        <li><strong>Tiêu đề:</strong> Tư tưởng và cuộc đời Chủ tịch Hồ Chí Minh</li>
+        <li><strong>Mốc chính:</strong> Sinh 1890 — Ra đi 1911 — Độc lập 1945 — Qua đời 1969</li>
+        <li><strong>Ý chính tư tưởng:</strong> Độc lập dân tộc gắn với chủ nghĩa xã hội; lấy dân làm gốc; đạo đức cách mạng; kết hợp lý luận với thực tiễn.</li>
+        <li><strong>Kết luận:</strong> Di sản tinh thần của Bác là nền tảng cho công cuộc xây dựng và phát triển đất nước ngày nay.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    © 2025 — Trang học tập: Lăng Chủ tịch Hồ Chí Minh | Thiết kế bởi Nguyễn Thế Trung Hiếu
+  </footer>
+
+  <!-- ===========================
+       SCRIPTS: interactions
+       =========================== -->
+  <script>
+    // === Dark mode persistence ===
+    const toggle = document.getElementById('toggleTheme');
+    const body = document.body;
+    let dark = localStorage.getItem('th-dark') === '1';
+    if(dark){ body.classList.add('dark'); toggle.textContent = '☀️ Light Mode'; toggle.setAttribute('aria-pressed','true'); }
+
+    toggle.addEventListener('click', () => {
+      dark = !dark;
+      body.classList.toggle('dark', dark);
+      toggle.textContent = dark ? '☀️ Light Mode' : '🌙 Dark Mode';
+      toggle.setAttribute('aria-pressed', dark ? 'true' : 'false');
+      localStorage.setItem('th-dark', dark ? '1':'0');
+    });
+
+    // === Mobile menu toggle ===
+    const menuBtn = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      const open = mobileMenu.style.display === 'block';
+      mobileMenu.style.display = open ? 'none' : 'block';
+      menuBtn.setAttribute('aria-expanded', String(!open));
+    });
+
+    // === Audio: upload or URL ===
+    const fileInput = document.getElementById('fileInput');
+    const audioUrl = document.getElementById('audioUrl');
+    const loadUrlBtn = document.getElementById('loadUrl');
+    const audioEl = document.getElementById('bgAudio');
+    const playToggle = document.getElementById('playToggle');
+
+    // Helper: stop and clear
+    function stopAudio(){
+      try{ audioEl.pause(); audioEl.currentTime=0; }catch(e){}
+      playToggle.textContent = '▶️ Phát';
+    }
+
+    fileInput.addEventListener('change', (e) => {
+      const f = e.target.files[0];
+      if(!f) return;
+      const url = URL.createObjectURL(f);
+      audioEl.src = url;
+      audioEl.load();
+      audioEl.play().then(()=> playToggle.textContent='⏸️ Tạm dừng').catch(()=> playToggle.textContent='▶️ Phát');
+    });
+
+    loadUrlBtn.addEventListener('click', () => {
+      const u = audioUrl.value.trim();
+      if(!u){ alert('Hãy nhập URL hợp lệ'); return; }
+      audioEl.src = u;
+      audioEl.load();
+      audioEl.play().then(()=> playToggle.textContent='⏸️ Tạm dừng').catch(()=> playToggle.textContent='▶️ Phát');
+    });
+
+    playToggle.addEventListener('click', () => {
+      if(!audioEl.src){ alert('Chưa có file nhạc. Vui lòng tải file hoặc nhập URL.'); return; }
+      if(audioEl.paused){
+        audioEl.play().then(()=>{ playToggle.textContent='⏸️ Tạm dừng'; }).catch(()=>{ alert('Trình duyệt chặn autoplay; hãy cho phép hoặc bấm play lại.'); });
+      } else {
+        audioEl.pause();
+        playToggle.textContent='▶️ Phát';
+      }
+    });
+
+    // === Quiz logic ===
+    const quizArea = document.getElementById('quizArea');
+    const finishBtn = document.getElementById('finishQuiz');
+    const scoreDiv = document.getElementById('quizScore');
+
+    // Add per-answer click handlers
+    quizArea.querySelectorAll('.question').forEach(q => {
+      q.querySelectorAll('.answers button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          // visually mark selected
+          q.querySelectorAll('.answers button').forEach(b=> b.style.outline='none');
+          btn.style.outline = '2px solid #60a5fa';
+          q.dataset.selected = btn.dataset.correct === 'true' ? '1' : '0';
+          // immediate feedback small
+          const fb = q.querySelector('.feedback');
+          if(btn.dataset.correct === 'true'){
+            fb.innerHTML = '<div class="result">Chính xác! ★ Bạn nhận được 1 điểm. Lời khen: Làm tốt — bạn chú ý mốc lịch sử cơ bản.</div>';
+          } else {
+            fb.innerHTML = '<div class="result" style="background:#fff7ed;border-color:#ffd7a8;color:#92400e">Sai rồi. Gợi ý: kiểm tra lại mốc ngày tháng liên quan đến Tuyên ngôn hoặc tiểu sử.</div>';
+          }
+        });
+      });
+    });
+
+    finishBtn.addEventListener('click', () => {
+      const qs = Array.from(quizArea.querySelectorAll('.question'));
+      let total = qs.length;
+      let score = 0;
+      let missing=false;
+      for(const q of qs){
+        if(q.dataset.selected === undefined){ missing=true; q.style.border='1px dashed #fde68a'; }
+        if(q.dataset.selected === '1') score++;
+      }
+      if(missing && !confirm('Bạn chưa trả lời hết câu hỏi. Vẫn nộp chứ?')) return;
+      scoreDiv.innerHTML = `<div class="result">Bạn đạt <strong>${score}/${total}</strong> điểm.</div>`;
+      localStorage.setItem('th-quiz-score', `${score}/${total}`);
+    });
+
+    // Preload previous score
+    const prev = localStorage.getItem('th-quiz-score');
+    if(prev) scoreDiv.innerHTML = `<div class="muted small">Điểm trước: ${prev}</div>`;
+
+    // Accessibility: allow Enter to activate answer buttons
+    document.querySelectorAll('.answers button').forEach(b=>{
+      b.setAttribute('tabindex','0');
+      b.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') b.click(); });
+    });
+
+    // Smooth anchor offset fix: when jumping to sections, account for header height
+    function offsetAnchor(){
+      if(location.hash.length !== 0){
+        window.scrollTo(window.scrollX, window.scrollY - 70);
+      }
+    }
+    window.addEventListener("hashchange", offsetAnchor);
+    window.setTimeout(offsetAnchor, 1);
+
+    // End scripts
+  </script>
+</body>
+</html>
+
+
